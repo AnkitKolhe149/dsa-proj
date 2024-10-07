@@ -44,53 +44,55 @@
                     </ul>
                 </div>
                 <ol>
-                    <li>
-                        <p>What is the primary purpose of Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) To find the maximum product subarray</label></li>
-                            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) To find the maximum sum of a non-contiguous subarray</label></li>
-                            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) To find the maximum sum of a contiguous subarray</label></li>
-                            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) To find the minimum sum of a contiguous subarray</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What should be the initial value of maximum in Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) 0</label></li>
-                            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) The first element of the array</label></li>
-                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) Negative infinity</label></li>
-                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) Any arbitrary value</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What does Kadane's Algorithm do when the current subarray sum becomes negative?</p>
-                        <ul>
-                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Continues adding the next element</label></li>
-                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Resets the sum to zero</label></li>
-                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Ends the program</label></li>
-                            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) Subtracts the sum from the maximum value</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>In which time complexity does Kadane's Algorithm operate?</p>
-                        <ul>
-                            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) O(n)</label></li>
-                            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) O(n^2)</label></li>
-                            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) O(log n)</label></li>
-                            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) O(nlog n)</label></li>
-                        </ul>
-                    </li>
-                    
-                        <li>
-                            <p>What is the space complexity of Kadane's Algorithm?</p>
-                            <ul>
-                                <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) O(n)</label></li>
-                                <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) O(1)</label></li>
-                                <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) O(log n)</label></li>
-                                <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) O(n^2)</label></li>
-                            </ul>
-                        </li>
-                    </ol>
+    <li>
+        <p>What is the main advantage of using a Bloom Filter compared to a traditional hash table?</p>
+        <ul>
+            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) It provides exact membership testing</label></li>
+            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) It guarantees no false positives</label></li>
+            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) It is more space-efficient but may produce false positives</label></li>
+            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) It supports dynamic resizing</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>How does a Bloom Filter handle an element that is definitely not in the set?</p>
+        <ul>
+            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) It can definitely confirm the element is not in the set</label></li>
+            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) It might return that the element is in the set</label></li>
+            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) It always gives a false positive</label></li>
+            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) It stores the element for future queries</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>Which of the following best describes the space efficiency of a Bloom Filter?</p>
+        <ul>
+            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) It requires a lot of space to avoid false positives</label></li>
+            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) It uses minimal space but allows for some false positives</label></li>
+            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) It uses space proportional to the number of elements</label></li>
+            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) It uses the same space as a hash table</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>In a Bloom Filter, what is the purpose of using multiple hash functions?</p>
+        <ul>
+            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) To reduce the bit array size</label></li>
+            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) To increase the probability of false positives</label></li>
+            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) To reduce the number of hash collisions</label></li>
+            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) To ensure that more bits are set, reducing the false positive rate</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>Which of the following is NOT a typical application of Bloom Filters?</p>
+        <ul>
+            <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) Database indexing</label></li>
+            <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Spell checking</label></li>
+            <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Network packet filtering</label></li>
+            <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) Exact set membership queries</label></li>
+        </ul>
+    </li>
+</ol>
+
+<center><button type="submit">Submit</button></center>
+
                 </div>
             </div>
         </main>
