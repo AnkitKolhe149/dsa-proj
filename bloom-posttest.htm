@@ -44,70 +44,56 @@
                         <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
-
-                
-                
-                <ol>
-                    <li>
-                        <p>What is the primary purpose of Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) Find the maximum product of a subarray</label></li>
-                            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) Find the maximum sum of a contiguous subarray</label></li>
-                            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) Sort an array in ascending order</label></li>
-                            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) Find the minimum sum of a subarray</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What is the initial value of the maximum variable in Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) 0</label></li>
-                            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) arr[0]</label></li>
-                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) INT_MIN</label></li>
-                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) arr[size-1]</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What does Kadane's Algorithm do when the current subarray sum becomes negative?</p>
-                        <ul>
-                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Continue adding the next element</label></li>
-                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Reset the sum to 0</label></li>
-                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Return the sum</label></li>
-                            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) Subtract the negative value from the sum</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>Which of the following time complexities best describes Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) O(n^2)</label></li>
-                            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) O(n)</label></li>
-                            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) O(log n)</label></li>
-                            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) O(nlog n)</label></li>
-                        </ul>
-                    </li>
-                    
-
+                      <ol>
                             <li>
-                                <p>What is the key concept used in Kadane's Algorithm to build the solution?</p>
-                                <ul>
-                                    <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) Dynamic Programming</label></li>
-                                    <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Greedy Algorithm</label></li>
-                                    <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Divide and Conquer</label></li>
-                                    <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) Backtracking</label></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <p>What is the maximum sum of a contiguous subarray in Kadane's Algorithm?</p>
-                                <ul>
-                                    <li><input type="radio" id="q6a" name="q6"><label for="q6a">A) The sum of all positive elements</label></li>
-                                    <li><input type="radio" id="q6b" name="q6"><label for="q6b">B) The maximum sum of a subarray</label></li>
-                                    <li><input type="radio" id="q6c" name="q6"><label for="q6c">C) The sum of all negative elements</label></li>
-                                    <li><input type="radio" id="q6d" name="q6"><label for="q6d">D) The minimum sum of a subarray</label></li>
-                                </ul>
-                            </li>
-                        </ol>
-                        
-                    </div>
-                    <center><button type="submit">Submit</button></center>
+         <p>What is the main advantage of using a Bloom Filter compared to a traditional hash table?</p>
+        <ul>
+            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) It provides exact membership testing</label></li>
+            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) It guarantees no false positives</label></li>
+            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) It is more space-efficient but may produce false positives</label></li>
+            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) It supports dynamic resizing</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>How does a Bloom Filter handle an element that is definitely not in the set?</p>
+        <ul>
+            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) It can definitely confirm the element is not in the set</label></li>
+            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) It might return that the element is in the set</label></li>
+            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) It always gives a false positive</label></li>
+            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) It stores the element for future queries</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>Which of the following best describes the space efficiency of a Bloom Filter?</p>
+        <ul>
+            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) It requires a lot of space to avoid false positives</label></li>
+            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) It uses minimal space but allows for some false positives</label></li>
+            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) It uses space proportional to the number of elements</label></li>
+            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) It uses the same space as a hash table</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>In a Bloom Filter, what is the purpose of using multiple hash functions?</p>
+        <ul>
+            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) To reduce the bit array size</label></li>
+            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) To increase the probability of false positives</label></li>
+            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) To reduce the number of hash collisions</label></li>
+            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) To ensure that more bits are set, reducing the false positive rate</label></li>
+        </ul>
+    </li>
+    <li>
+        <p>Which of the following is NOT a typical application of Bloom Filters?</p>
+        <ul>
+            <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) Database indexing</label></li>
+            <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Spell checking</label></li>
+            <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Network packet filtering</label></li>
+            <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) Exact set membership queries</label></li>
+        </ul>
+    </li>
+</ol>
+
+<center><button type="submit">Submit</button></center>
+
                 </div>
             </main>
         
