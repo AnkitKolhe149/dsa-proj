@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY LEARNING Labs</title>
+    <link rel="stylesheet" href="css_m.css">
+</head>
+
+
+<body>
+    
+    
+    <header>
+        <div class="container">
+            
+            <nav>
+                <div class="logo">
+                    <img src="logo.png" alt="MY LEARNING Labs Logo">
+                </div>
+
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./contributors.htm">CONTRIBUTORS</a></li>
+                    <li><a href="./contact.htm">CONTACT</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container">
+            <h1>Linked List  </h1>
+            <h2>Aim</h2>
+            <div class="content">
+                
+                
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="./MAIN.html">Overview</a></li>
+                        <li><a href="./linklist-overview.htm">Recap</a></li>
+                        <li><a href="./linklist-pretest.htm">Pretest</a></li>
+                        <li><a href="#">Divide and Conquer</a></li>
+                        <li><a href="./kadane-vid.htm">Kadane's' Algorithm</a></li>
+                        <li><a href="./linklist-analysis.htm">Analysis</a></li>
+                        <li><a href="linklist-posttest.htm">Posttest</a></li>
+                        <li><a href="#">Further Readings/References</a></li>
+                        
+                    </ul>
+                </div>
+
+
+                <div class="main-content">
+                    <h2>Linked List</h2>
+                    <div class="info">
+                        <h3>Estimated Time</h3>
+                        <p>1 hour</p>
+                    </div>
+                    <div class="info">
+                        <h3>What is the definition of the Linked List</h3>
+                        
+                            <p>Linked list is a linear data structure where each data is a separate object (of same data type). Linked
+ list objects do not occupy the contiguous memory location as compared to the array which is also a
+ linear data structure where elements have contiguous memory allocation, instead linked lists are
+ linked using pointers. Elements of the linked lists are known as Nodes.
+ There are three types of linked lists:
+  <ul><li> Singly Linked List</li>
+  <li>Doubly Linked List</li>
+  <li>Circular Linked List</li></ul>
+                            <p>
+                               <h3>Singly Linked List</h3>
+ In a singly linked list, each node has a data part and a pointer to the next node in the sequence.
+ The last node's pointer points to NULL.
+ Code Structure:
+ <ul><li> NodeStructure: Contains data and a pointer to the next node.</li>
+ <li> Insertion/Deletion: Typically involves updating the next pointers.</li>
+<li> Traversal: Starts from the head and moves to the next node until NULL is reached.</li></ul>
+
+                             <h3>Doubly Linked List</h3> 
+ In a doubly linked list, each node contains a data part, a pointer to the next node, and a pointer
+ to the previous node. This allows traversal in both directions.
+ Differences:
+ <ul><li>NodeStructure: Each node has two pointers: one for the next node and one for the
+ previous node.</li>
+ <li>>Insertion/Deletion: Requires updating both next and prev pointers.</li
+ <li>Traversal: Can be done in both forward and backward directions.</li></ul>
+
+                              <h3>Circular Linked List</h3>
+ A circular linked list is similar to a singly linked list, except that the last node's next pointer points
+ back to the first node, forming a circle. This can be implemented with singly or doubly linked
+ nodes.
+ Differences:
+ <ul><li>NodeStructure: Similar to singly or doubly linked lists, but the last node points to the
+ first node.</li>
+<li> Insertion/Deletion: Care must be taken to update the next pointers correctly to
+ maintain the circular nature.</li>
+ <li> Traversal: Traversal usually starts from any node and ends when the starting node is
+ encountered again.</li></ul>
+                            </p>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="javas_m.js"></script>
+</body>
+</html>
