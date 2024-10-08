@@ -48,7 +48,7 @@
                         <li><a href="./kadane-analysis.htm">Analysis</a></li>
                         <li><a href="kadane-posttest.htm">Posttest</a></li>
                         <li><a href="#">Further Readings/References</a></li>
-                        <li><a href="#">Feedback</a></li>
+                        
                     </ul>
                 </div>
 
@@ -60,55 +60,19 @@
                         <p>1 hour</p>
                     </div>
                     <div class="info">
-                        <h3>What is the complexity of the algorithm ?</h3>
-                        <ul>
-                            <li> Time Complexity</li>
-                            <p>Initialization: We initialize two variables, max_current and max_global, which takes constant time, 𝑂(1)
-                                O(1).
-                                Loop: The main part of Kadane's Algorithm involves a single loop that iterates through the array exactly once. For an array of size 𝑛
-                                n, the loop will execute 𝑛 times.
-                                Operations Inside the Loop: Inside the loop, we perform a few operations (addition, comparison, and assignment), all of which take constant time, 𝑂(1)
-                                O(1).
-                                Since the loop runs 
-                                𝑛n times and each iteration takes 
-                                𝑂
-                                (
-                                1
-                                )
-                                O(1) time, the overall time complexity is:
-                                
-                                </p>
-                            <li>Space Complexity</li>
-                            <p>
-                                Extra Variables: The algorithm uses a constant amount of extra space for the variables max_current and max_global.
-There are no additional data structures or recursive calls, so the space complexity is:
-
-𝑂
-(
-1
-)
-O(1)
-Summary
-Time Complexity: 
-𝑂
-(
-𝑛
-)
-O(n)
-Space Complexity: 
-𝑂
-(
-1
-)
-O(1)
-Kadane's Algorithm is optimal for this problem because it finds the maximum subarray sum in linear time and with constant space.
-                            </p>
-                             <!-- <li> If the current subarray sum (sum) becomes negative, the algorithm discards it
-                                and starts with a new subarray from the next element by resetting sum to 0.</li>
-                            <li>Bytheendof the loop, maximum contains the largest sum of any contiguous
-                                subarray in the array.</li> -->
-                           <!--  <li>Compare Merge Sort with other sorting algorithms and realise Merge Sort as a stable comparison sorting algorithm.</li> -->
-                        </ul>
+                        <h3>How does this algorithm works ?</h3>
+                      <p> Dijkstra's Algorithm is a method for finding the shortest path between two nodes in a graph. It works by 
+maintaining a priority queue of nodes, where the priority of each node is its minimum distance from the 
+starting node. The algorithm repeatedly extracts the node with the minimum priority from the queue 
+and updates the distances of its neighbors. 
+<h3>How the Algorithm Works:</h3><ol><li>
+ Initialize the starting node and set its distance to 0. </li>
+ <li>Create a priority queue of nodes, where the priority of each node is its minimum distance from 
+the starting node. </li>
+<li>While the queue is not empty, extract the node with the minimum priority from the queue. </li> 
+<li> For each neighbor of the extracted node, update its distance if the path through the extracted 
+node is shorter. </li>
+ <li>Repeat steps 3-4 until the queue is empty.</li></ol>  </p>
                     </div>
                 </div>
             </div>
