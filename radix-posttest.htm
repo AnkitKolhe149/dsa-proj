@@ -26,7 +26,7 @@
     <main>
         <div class="container">
             <h1>Posttest</h1>
-            <center><h2>Kadane's Algorithm Posttest</h2></center>
+            <center><h2>Radix Algorithm Posttest</h2></center>
             <div class="content">
 
                 
@@ -34,77 +34,119 @@
                 <div class="sidebar">
                     <ul>
                         <li><a href="./main.htm">Overview</a></li>
-                        <li><a href="./kadane-overview">Recap</a></li>
-                        <li><a href="./kadane-pretest.htm">Pretest</a></li>
+                        <li><a href="./radix-overview.htm">Recap</a></li>
+                        <li><a href="./radix-pretest.htm">Pretest</a></li>
                         <li><a href="#">Divide and Conquer</a></li>
-                        <li><a href="#">Kadane's Algorithm</a></li>
-                        <li><a href="#">Analysis</a></li>
+                        <li><a href="radix-vid.htm">Radix Algorithm</a></li>
+                        <li><a href="./radix-analysis.htm">Analysis</a></li>
                         <li><a href="kadane-posttest.htm">Posttest</a></li>
                         <li><a href="#">Further Readings/References</a></li>
                         <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
 
-                
-                
-                <ol>
-                    <li>
-                        <p>What is the primary purpose of Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) Find the maximum product of a subarray</label></li>
-                            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) Find the maximum sum of a contiguous subarray</label></li>
-                            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) Sort an array in ascending order</label></li>
-                            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) Find the minimum sum of a subarray</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What is the initial value of the maximum variable in Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) 0</label></li>
-                            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) arr[0]</label></li>
-                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) INT_MIN</label></li>
-                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) arr[size-1]</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What does Kadane's Algorithm do when the current subarray sum becomes negative?</p>
-                        <ul>
-                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Continue adding the next element</label></li>
-                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Reset the sum to 0</label></li>
-                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Return the sum</label></li>
-                            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) Subtract the negative value from the sum</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>Which of the following time complexities best describes Kadane's Algorithm?</p>
-                        <ul>
-                            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) O(n^2)</label></li>
-                            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) O(n)</label></li>
-                            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) O(log n)</label></li>
-                            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) O(nlog n)</label></li>
-                        </ul>
-                    </li>
-                    
+         <ol>
+    <li>
+        <p>What is the primary strategy of Radix Sort?</p>
+        <ul>
+            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) Comparison-based sorting</label></li>
+            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) Distribution-based sorting</label></li>
+            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) In-place sorting</label></li>
+            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) Merging sorted lists</label></li>
+        </ul>
+    </li>
 
-                            <li>
-                                <p>What is the key concept used in Kadane's Algorithm to build the solution?</p>
-                                <ul>
-                                    <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) Dynamic Programming</label></li>
-                                    <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Greedy Algorithm</label></li>
-                                    <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Divide and Conquer</label></li>
-                                    <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) Backtracking</label></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <p>What is the maximum sum of a contiguous subarray in Kadane's Algorithm?</p>
-                                <ul>
-                                    <li><input type="radio" id="q6a" name="q6"><label for="q6a">A) The sum of all positive elements</label></li>
-                                    <li><input type="radio" id="q6b" name="q6"><label for="q6b">B) The maximum sum of a subarray</label></li>
-                                    <li><input type="radio" id="q6c" name="q6"><label for="q6c">C) The sum of all negative elements</label></li>
-                                    <li><input type="radio" id="q6d" name="q6"><label for="q6d">D) The minimum sum of a subarray</label></li>
-                                </ul>
-                            </li>
-                        </ol>
+    <li>
+        <p>Which of the following statements is true about Radix Sort?</p>
+        <ul>
+            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) It can only sort integers.</label></li>
+            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) It is an unstable sorting algorithm.</label></li>
+            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) It can sort strings based on lexicographical order.</label></li>
+            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) It requires more memory than Quick Sort.</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>Radix Sort sorts numbers by processing which of the following?</p>
+        <ul>
+            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) The digits from the most significant to the least significant</label></li>
+            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) The digits from the least significant to the most significant</label></li>
+            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) The binary representations of the numbers</label></li>
+            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) The entire number at once</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>What is the time complexity of Radix Sort when sorting n numbers with d digits?</p>
+        <ul>
+            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) O(n log n)</label></li>
+            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) O(n<sup>2</sup>)</label></li>
+            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) O(n * d)</label></li>
+            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) O(d * log n)</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>In Radix Sort, which sorting algorithm is typically used as a subroutine for sorting digits?</p>
+        <ul>
+            <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) Quick Sort</label></li>
+            <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Heap Sort</label></li>
+            <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Counting Sort</label></li>
+            <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) Merge Sort</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>Which of the following is a requirement for Radix Sort to be efficient?</p>
+        <ul>
+            <li><input type="radio" id="q6a" name="q6"><label for="q6a">A) The range of input data must be small.</label></li>
+            <li><input type="radio" id="q6b" name="q6"><label for="q6b">B) The input data must be sorted initially.</label></li>
+            <li><input type="radio" id="q6c" name="q6"><label for="q6c">C) The numbers must be positive.</label></li>
+            <li><input type="radio" id="q6d" name="q6"><label for="q6d">D) The input data must be integers only.</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>Radix Sort can be described as a stable sort. What does "stable" mean in this context?</p>
+        <ul>
+            <li><input type="radio" id="q7a" name="q7"><label for="q7a">A) It uses less memory than other sorts.</label></li>
+            <li><input type="radio" id="q7b" name="q7"><label for="q7b">B) Equal elements maintain their relative order.</label></li>
+            <li><input type="radio" id="q7c" name="q7"><label for="q7c">C) It always produces the same output for the same input.</label></li>
+            <li><input type="radio" id="q7d" name="q7"><label for="q7d">D) It can sort large datasets efficiently.</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>Which of the following scenarios would be best suited for using Radix Sort?</p>
+        <ul>
+            <li><input type="radio" id="q8a" name="q8"><label for="q8a">A) Sorting a list of floating-point numbers.</label></li>
+            <li><input type="radio" id="q8b" name="q8"><label for="q8b">B) Sorting a small array of mixed data types.</label></li>
+            <li><input type="radio" id="q8c" name="q8"><label for="q8c">C) Sorting a large list of integers.</label></li>
+            <li><input type="radio" id="q8d" name="q8"><label for="q8d">D) Sorting data that is already nearly sorted.</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>What is a disadvantage of Radix Sort?</p>
+        <ul>
+            <li><input type="radio" id="q9a" name="q9"><label for="q9a">A) It is slower than merge sort.</label></li>
+            <li><input type="radio" id="q9b" name="q9"><label for="q9b">B) It is not suitable for large datasets.</label></li>
+            <li><input type="radio" id="q9c" name="q9"><label for="q9c">C) It can require significant additional memory.</label></li>
+            <li><input type="radio" id="q9d" name="q9"><label for="q9d">D) It can only sort numbers.</label></li>
+        </ul>
+    </li>
+
+    <li>
+        <p>What is the main difference between Least Significant Digit (LSD) and Most Significant Digit (MSD) Radix Sort?</p>
+        <ul>
+            <li><input type="radio" id="q10a" name="q10"><label for="q10a">A) LSD processes the digits from left to right; MSD processes from right to left.</label></li>
+            <li><input type="radio" id="q10b" name="q10"><label for="q10b">B) LSD is faster than MSD for all cases.</label></li>
+            <li><input type="radio" id="q10c" name="q10"><label for="q10c">C) MSD can handle variable-length inputs; LSD cannot.</label></li>
+            <li><input type="radio" id="q10d" name="q10"><label for="q10d">D) There is no difference; they are the same algorithm.</label></li>
+        </ul>
+    </li>
+</ol>
+ 
                         
                     </div>
                     <center><button type="submit">Submit</button></center>
