@@ -1,1 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY LEARNING Labs</title>
+    <link rel="stylesheet" href="css_m.css">
+</head>
 
+
+<body>
+    
+    
+    <header>
+        <div class="container">
+            
+            <nav>
+                <div class="logo">
+                    <img src="logo.png" alt="MY LEARNING Labs Logo">
+                </div>
+
+                <ul>
+                    <li><a href="./home.htm">HOME</a></li>
+                    <li><a href="./contributors.htm">CONTRIBUTORS</a></li>
+                    <li><a href="./contact.htm">CONTACT</a></li>
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+        <div class="container">
+            <h1>Radix Algorithm </h1>
+            <h2>Aim</h2>
+            <div class="content">
+                
+                
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="./main.htm">Overview</a></li>
+                        <li><a href="./radix-overview.htm">Recap</a></li>
+                        <li><a href="./radix-pretest.htm">Pretest</a></li>
+                        <li><a href="#">Divide and Conquer</a></li>
+                        <li><a href="radix-vid.htm">Bloom's Algorithm</a></li>
+                        <li><a href="./radix-analysis.htm">Analysis</a></li>
+                        <li><a href="radix-posttest.htm">Posttest</a></li>
+                        <li><a href="#">Further Readings/References</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="main-content">
+                    <h2>Radix Algorithm</h2>
+                    <div class="info">
+                        <h3>Estimated Time</h3>
+                        <p>1 hour</p>
+                    </div>
+                    <div class="info">
+                        <h3>What is the complexity of the algorithm ?</h3>
+                        <ul>
+                            <li><strong>Time Complexity</strong></li>
+                            <p>
+                                Radix Sort sorts numbers one digit at a time. The time it takes depends on:
+                                <ul>
+                                    <li><strong>n:</strong> The number of elements to sort.</li>
+                                    <li><strong>d:</strong> The number of digits in the largest number.</li>
+                                    <li><strong>k:</strong> The range of values each digit can take (like 0-9 for decimal numbers).</li>
+                                </ul>
+                                <p>
+                                    The total time to sort is <code>O(d * (n + k))</code>. This means we do <code>d</code> rounds of sorting, and each round takes <code>O(n + k)</code> time.
+                                </p>
+                                <p>
+                                    For example, if you are sorting 100 numbers, each with at most 3 digits (like 457, 234, etc.), and you're using decimal numbers (0-9), it will take 3 rounds of sorting.
+                                </p>
+                            </p>
+                        
+                            <li><strong>Space Complexity</strong></li>
+                            <p>
+                                Radix Sort uses extra space to hold the sorted output at each step and to count how many times each digit appears. This extra space is proportional to:
+                                <ul>
+                                    <li><strong>n:</strong> The number of elements.</li>
+                                    <li><strong>k:</strong> The range of possible digit values (0-9 for decimal numbers).</li>
+                                </ul>
+                                <p>
+                                    So the space complexity is <code>O(n + k)</code>.
+                                </p>
+                            </p>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="javas_m.js"></script>
+</body>
+</html>
