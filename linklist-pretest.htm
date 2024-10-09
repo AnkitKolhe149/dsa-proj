@@ -5,6 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY LEARNING Labs - Pretest</title>
     <link rel="stylesheet" href="css_m.css">
+    <style>
+        /* Styling the submit button */
+        button {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* No border */
+            color: white; /* White text */
+            padding: 15px 32px; /* Padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Inline-block for width/height control */
+            font-size: 16px; /* Font size */
+            margin: 20px 0; /* Margin */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover */
+        }
+        /* Hover effect for the submit button */
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+        /* Center the button */
+        center button {
+            width: 200px; /* Fixed width */
+        }
+        /* Styling the result text */
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,8 +60,6 @@
             <h1>Pretest</h1>
             <h2>Linked List Algorithm Pretest</h2>
             <div class="content">
-                
-
                 <div class="sidebar">
                     <ul>
                         <li><a href="./home-linklist.htm">Overview</a></li>
@@ -40,66 +70,97 @@
                         <li><a href="./linklist-analysis.htm">Analysis</a></li>
                         <li><a href="./linklist-posttest.htm">Posttest</a></li>
                         <li><a href="#">Further Readings/References</a></li>
-                       
                     </ul>
                 </div>
-                <ol>
-                    <li>
-                        <p> Which of these best describes an array?</p>
-                        <ul>
-                            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) A data structure that shows a hierarchical behaviour</label></li>
-                            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) Container of objects of similar types</label></li>
-                            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) Container of objects of mixed types</label></li>
-                            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D)  Which of these best describes an array?</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p> What is the time complexity of insertion at any point in an array?</p>
-                        <ul>
-                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) O(N)</label></li>
-                            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) O(N^2)</label></li>
-                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) O(NLogN)</label></li>
-                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) None of these</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>Pick incorrect options from the following</p>
-                        <ul>
-                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) If structure contains 3 types of data then one pointer is sufficient for that structure</label></li>
-                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) One variable can be bound to many structures</label></li>
-                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Contents of a structure are stored in contiguous memory</label></li>
-                            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) None of these</label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>The memory occupied by a pointer _______</p>
-                        <ul>
-                            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) Is dependent on which data type the pointer points to.</label></li>
-                            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) Is independent of data type.</label></li>
-                            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) Depends on the program we are writing,)</label></li>
-                            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) None of these</label></li>
-                        </ul>
-                    </li>
-                    
+                <form id="pretest-form">
+                    <ol>
                         <li>
-                            <p> What are the advantages of a doubly linked list ?</p>
+                            <p>Which of these best describes an array?</p>
+                            <ul>
+                                <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) A data structure that shows a hierarchical behaviour</label></li>
+                                <li><input type="radio" id="q1b" name="q1" value="correct"><label for="q1b">B) Container of objects of similar types</label></li>
+                                <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) Container of objects of mixed types</label></li>
+                                <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) Which of these best describes an array?</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>What is the time complexity of insertion at any point in an array?</p>
+                            <ul>
+                                <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) O(N)</label></li>
+                                <li><input type="radio" id="q2b" name="q2" value="correct"><label for="q2b">B) O(N^2)</label></li>
+                                <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) O(NLogN)</label></li>
+                                <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) None of these</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Pick incorrect options from the following</p>
+                            <ul>
+                                <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) If structure contains 3 types of data then one pointer is sufficient for that structure</label></li>
+                                <li><input type="radio" id="q3b" name="q3" value="correct"><label for="q3b">B) One variable can be bound to many structures</label></li>
+                                <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Contents of a structure are stored in contiguous memory</label></li>
+                                <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) None of these</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>The memory occupied by a pointer _______</p>
+                            <ul>
+                                <li><input type="radio" id="q4a" name="q4" value="correct"><label for="q4a">A) Is dependent on which data type the pointer points to.</label></li>
+                                <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) Is independent of data type.</label></li>
+                                <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) Depends on the program we are writing.</label></li>
+                                <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) None of these</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>What are the advantages of a doubly linked list?</p>
                             <ul>
                                 <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) The memory required for a doubly linked list is less than a linked list</label></li>
-                                <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Doubly linked list allows for traversing both sides.</label></li>
+                                <li><input type="radio" id="q5b" name="q5" value="correct"><label for="q5b">B) Doubly linked list allows for traversing both sides.</label></li>
                                 <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Inserting an element is faster in a doubly linked list.</label></li>
                                 <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) There is no advantage.</label></li>
                             </ul>
                         </li>
                     </ol>
-                </div>
+                    <center><button type="button" onclick="calculateScore()">Submit</button></center>
+                    <div id="result"></div>
+                </form>
             </div>
-        </main>
-    
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Learning Labs</p>
-            </div>
-        </footer>
-    
-    </body>
-    </html>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            const totalQuestions = 5;
+            let score = 0;
+
+            // Get the values of each question
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const q5 = document.querySelector('input[name="q5"]:checked');
+
+            // Check if all questions are answered
+            if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+
+            // Calculate score
+            if (q1.value === 'correct') score++;
+            if (q2.value === 'correct') score++;
+            if (q3.value === 'correct') score++;
+            if (q4.value === 'correct') score++;
+            if (q5.value === 'correct') score++;
+
+            // Display the score
+            document.getElementById('result').innerText = `Your score is ${score} out of ${totalQuestions}.`;
+        }
+    </script>
+</body>
+</html>
