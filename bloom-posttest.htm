@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY LEARNING Labs - Posttest</title>
     <link rel="stylesheet" href="css_m.css">
+    <style>
+        /* Styling the submit button */
+        button {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* No border */
+            color: white; /* White text */
+            padding: 15px 32px; /* Padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Inline-block for width/height control */
+            font-size: 16px; /* Font size */
+            margin: 20px 0; /* Margin */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover */
+        }
+
+        /* Hover effect for the submit button */
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Center the button */
+        center button {
+            width: 200px; /* Fixed width */
+        }
+
+        /* Styling the result text */
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,7 +125,7 @@
                                 <li><input type="radio" id="q5d" name="q5" value="correct"><label for="q5d">D) The speed of the hash functions</label></li>
                             </ul>
                         </li>
-                    </ol>
+                   </ol>
                     <center><button type="button" onclick="calculateScore()">Submit</button></center>
                 </form>
                 <center><p id="result"></p></center>
@@ -131,7 +166,7 @@
             if (q5.value === "correct") score++;
 
             // Display the score
-            document.getElementById("result").textContent = "You scored " + score + " out of " + totalQuestions;
+            document.getElementById("result").textContent = "You scored " + score + "/" + totalQuestions;
         }
     </script>
 </body>
