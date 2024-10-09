@@ -29,8 +29,6 @@
             <center><h2>Bloom's Algorithm Posttest</h2></center>
             <div class="content">
 
-                
-
                 <div class="sidebar">
                     <ul>
                         <li><a href="./main.htm">Overview</a></li>
@@ -44,65 +42,97 @@
                         <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
-                <ol>
-    <li>
-        <p>What is the primary drawback of using a Bloom Filter?</p>
-        <ul>
-            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) It cannot handle dynamic data efficiently</label></li>
-            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) It may produce false positives but guarantees no false negatives</label></li>
-            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) It requires more computational time for queries</label></li>
-            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) It has higher memory usage compared to other data structures</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>How does the false positive rate of a Bloom Filter change when the size of the bit array increases?</p>
-        <ul>
-            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) The false positive rate increases</label></li>
-            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) The false positive rate decreases</label></li>
-            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) The false positive rate remains constant</label></li>
-            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) The false positive rate initially decreases and then increases</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>What is the impact of increasing the number of hash functions used in a Bloom Filter?</p>
-        <ul>
-            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) It increases the probability of false positives</label></li>
-            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) It decreases the space efficiency of the Bloom Filter</label></li>
-            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) It decreases the probability of false positives but increases the time complexity</label></li>
-            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) It reduces the query time but increases false negatives</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>In which scenario would using a Bloom Filter be the most advantageous?</p>
-        <ul>
-            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) When exact membership queries are required</label></li>
-            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) When working with large sets where space efficiency is crucial</label></li>
-            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) When frequent dynamic updates to the set are expected</label></li>
-            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) When the exact size of the data structure is known and fixed</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>Which factor does NOT influence the performance of a Bloom Filter?</p>
-        <ul>
-            <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) The size of the bit array</label></li>
-            <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) The number of hash functions</label></li>
-            <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) The number of elements inserted into the filter</label></li>
-            <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) The speed of the hash functions</label></li>
-        </ul>
-    </li>
-</ol>
-<center><button type="submit">Submit</button></center>
 
+                <form id="posttest-form">
+                    <ol>
+                        <li>
+                            <p>What is the primary drawback of using a Bloom Filter?</p>
+                            <ul>
+                                <li><input type="radio" id="q1a" name="q1" value="B"><label for="q1a">A) It cannot handle dynamic data efficiently</label></li>
+                                <li><input type="radio" id="q1b" name="q1" value="correct"><label for="q1b">B) It may produce false positives but guarantees no false negatives</label></li>
+                                <li><input type="radio" id="q1c" name="q1" value="C"><label for="q1c">C) It requires more computational time for queries</label></li>
+                                <li><input type="radio" id="q1d" name="q1" value="D"><label for="q1d">D) It has higher memory usage compared to other data structures</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>How does the false positive rate of a Bloom Filter change when the size of the bit array increases?</p>
+                            <ul>
+                                <li><input type="radio" id="q2a" name="q2" value="A"><label for="q2a">A) The false positive rate increases</label></li>
+                                <li><input type="radio" id="q2b" name="q2" value="correct"><label for="q2b">B) The false positive rate decreases</label></li>
+                                <li><input type="radio" id="q2c" name="q2" value="C"><label for="q2c">C) The false positive rate remains constant</label></li>
+                                <li><input type="radio" id="q2d" name="q2" value="D"><label for="q2d">D) The false positive rate initially decreases and then increases</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>What is the impact of increasing the number of hash functions used in a Bloom Filter?</p>
+                            <ul>
+                                <li><input type="radio" id="q3a" name="q3" value="A"><label for="q3a">A) It increases the probability of false positives</label></li>
+                                <li><input type="radio" id="q3b" name="q3" value="B"><label for="q3b">B) It decreases the space efficiency of the Bloom Filter</label></li>
+                                <li><input type="radio" id="q3c" name="q3" value="correct"><label for="q3c">C) It decreases the probability of false positives but increases the time complexity</label></li>
+                                <li><input type="radio" id="q3d" name="q3" value="D"><label for="q3d">D) It reduces the query time but increases false negatives</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>In which scenario would using a Bloom Filter be the most advantageous?</p>
+                            <ul>
+                                <li><input type="radio" id="q4a" name="q4" value="A"><label for="q4a">A) When exact membership queries are required</label></li>
+                                <li><input type="radio" id="q4b" name="q4" value="correct"><label for="q4b">B) When working with large sets where space efficiency is crucial</label></li>
+                                <li><input type="radio" id="q4c" name="q4" value="C"><label for="q4c">C) When frequent dynamic updates to the set are expected</label></li>
+                                <li><input type="radio" id="q4d" name="q4" value="D"><label for="q4d">D) When the exact size of the data structure is known and fixed</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Which factor does NOT influence the performance of a Bloom Filter?</p>
+                            <ul>
+                                <li><input type="radio" id="q5a" name="q5" value="A"><label for="q5a">A) The size of the bit array</label></li>
+                                <li><input type="radio" id="q5b" name="q5" value="B"><label for="q5b">B) The number of hash functions</label></li>
+                                <li><input type="radio" id="q5c" name="q5" value="C"><label for="q5c">C) The number of elements inserted into the filter</label></li>
+                                <li><input type="radio" id="q5d" name="q5" value="correct"><label for="q5d">D) The speed of the hash functions</label></li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <center><button type="button" onclick="calculateScore()">Submit</button></center>
+                </form>
+                <center><p id="result"></p></center>
 
-                </div>
-            </main>
-        
-            <footer>
-                <div class="container">
-                    <p>&copy; 2024 Learning Labs</p>
-                </div>
-            </footer>
-        
-            <script src="js_posttest.js"></script>
-        </body>
-        </html>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let totalQuestions = 5;
+
+            // Get all answers
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            let q2 = document.querySelector('input[name="q2"]:checked');
+            let q3 = document.querySelector('input[name="q3"]:checked');
+            let q4 = document.querySelector('input[name="q4"]:checked');
+            let q5 = document.querySelector('input[name="q5"]:checked');
+
+            // Check if all questions are answered
+            if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                document.getElementById("result").textContent = "Please answer all the questions.";
+                return;
+            }
+
+            // Calculate the score based on correct answers
+            if (q1.value === "correct") score++;
+            if (q2.value === "correct") score++;
+            if (q3.value === "correct") score++;
+            if (q4.value === "correct") score++;
+            if (q5.value === "correct") score++;
+
+            // Display the score
+            document.getElementById("result").textContent = "You scored " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>
