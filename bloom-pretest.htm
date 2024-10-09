@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY LEARNING Labs - Pretest</title>
     <link rel="stylesheet" href="css_m.css">
+    <style>
+        /* Styling the submit button */
+        button {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* No border */
+            color: white; /* White text */
+            padding: 15px 32px; /* Padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Inline-block for width/height control */
+            font-size: 16px; /* Font size */
+            margin: 20px 0; /* Margin */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover */
+        }
+
+        /* Hover effect for the submit button */
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Center the button */
+        center button {
+            width: 200px; /* Fixed width */
+        }
+
+        /* Styling the result text */
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,80 +63,97 @@
             <h1>Pretest</h1>
             <h2>Kadane's Algorithm Pretest</h2>
             <div class="content">
-                
 
                 <div class="sidebar">
                     <ul>
                         <li><a href="./main.htm">Overview</a></li>
-                        <li><a href="./bloom-overview">Recap</a></li>
+                        <li><a href="./bloom-overview.htm">Recap</a></li>
                         <li><a href="./bloom-pretest.htm">Pretest</a></li>
                         <li><a href="#">Divide and Conquer</a></li>
                         <li><a href="./bloom-vid.htm">Kadane's Algorithm</a></li>
                         <li><a href="./bloom-analysis.htm">Analysis</a></li>
                         <li><a href="bloom-posttest.htm">Posttest</a></li>
-                        <li><a href="./feedback.html">Further Readings/References</a></li>
+                        <li><a href="#">Further Readings/References</a></li>
                         <li><a href="#">Feedback</a></li>
                     </ul>
                 </div>
-                <ol>
-    <li>
-        <p>What is the main advantage of using a Bloom Filter compared to a traditional hash table?</p>
-        <ul>
-            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) It provides exact membership testing</label></li>
-            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) It guarantees no false positives</label></li>
-            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) It is more space-efficient but may produce false positives</label></li>
-            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) It supports dynamic resizing</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>How does a Bloom Filter handle an element that is definitely not in the set?</p>
-        <ul>
-            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) It can definitely confirm the element is not in the set</label></li>
-            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) It might return that the element is in the set</label></li>
-            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) It always gives a false positive</label></li>
-            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) It stores the element for future queries</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>Which of the following best describes the space efficiency of a Bloom Filter?</p>
-        <ul>
-            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) It requires a lot of space to avoid false positives</label></li>
-            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) It uses minimal space but allows for some false positives</label></li>
-            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) It uses space proportional to the number of elements</label></li>
-            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) It uses the same space as a hash table</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>In a Bloom Filter, what is the purpose of using multiple hash functions?</p>
-        <ul>
-            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) To reduce the bit array size</label></li>
-            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) To increase the probability of false positives</label></li>
-            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) To reduce the number of hash collisions</label></li>
-            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) To ensure that more bits are set, reducing the false positive rate</label></li>
-        </ul>
-    </li>
-    <li>
-        <p>Which of the following is NOT a typical application of Bloom Filters?</p>
-        <ul>
-            <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) Database indexing</label></li>
-            <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) Spell checking</label></li>
-            <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) Network packet filtering</label></li>
-            <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) Exact set membership queries</label></li>
-        </ul>
-    </li>
-</ol>
 
-<center><button type="submit">Submit</button></center>
+                <form id="pretest-form">
+                    <ol>
+                        <li>
+                            <p>What is the main advantage of using a Bloom Filter compared to a traditional hash table?</p>
+                            <ul>
+                                <li><input type="radio" id="q1a" name="q1" value="A"><label for="q1a">A) It provides exact membership testing</label></li>
+                                <li><input type="radio" id="q1b" name="q1" value="B"><label for="q1b">B) It guarantees no false positives</label></li>
+                                <li><input type="radio" id="q1c" name="q1" value="correct"><label for="q1c">C) It is more space-efficient but may produce false positives</label></li>
+                                <li><input type="radio" id="q1d" name="q1" value="D"><label for="q1d">D) It supports dynamic resizing</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>How does a Bloom Filter handle an element that is definitely not in the set?</p>
+                            <ul>
+                                <li><input type="radio" id="q2a" name="q2" value="correct"><label for="q2a">A) It can definitely confirm the element is not in the set</label></li>
+                                <li><input type="radio" id="q2b" name="q2" value="B"><label for="q2b">B) It might return that the element is in the set</label></li>
+                                <li><input type="radio" id="q2c" name="q2" value="C"><label for="q2c">C) It always gives a false positive</label></li>
+                                <li><input type="radio" id="q2d" name="q2" value="D"><label for="q2d">D) It stores the element for future queries</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Which of the following best describes the space efficiency of a Bloom Filter?</p>
+                            <ul>
+                                <li><input type="radio" id="q3a" name="q3" value="A"><label for="q3a">A) It requires a lot of space to avoid false positives</label></li>
+                                <li><input type="radio" id="q3b" name="q3" value="correct"><label for="q3b">B) It uses minimal space but allows for some false positives</label></li>
+                                <li><input type="radio" id="q3c" name="q3" value="C"><label for="q3c">C) It uses space proportional to the number of elements</label></li>
+                                <li><input type="radio" id="q3d" name="q3" value="D"><label for="q3d">D) It uses the same space as a hash table</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>In a Bloom Filter, what is the purpose of using multiple hash functions?</p>
+                            <ul>
+                                <li><input type="radio" id="q4a" name="q4" value="A"><label for="q4a">A) To reduce the bit array size</label></li>
+                                <li><input type="radio" id="q4b" name="q4" value="B"><label for="q4b">B) To increase the probability of false positives</label></li>
+                                <li><input type="radio" id="q4c" name="q4" value="C"><label for="q4c">C) To reduce the number of hash collisions</label></li>
+                                <li><input type="radio" id="q4d" name="q4" value="correct"><label for="q4d">D) To ensure that more bits are set, reducing the false positive rate</label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>Which of the following is NOT a typical application of Bloom Filters?</p>
+                            <ul>
+                                <li><input type="radio" id="q5a" name="q5" value="A"><label for="q5a">A) Database indexing</label></li>
+                                <li><input type="radio" id="q5b" name="q5" value="B"><label for="q5b">B) Spell checking</label></li>
+                                <li><input type="radio" id="q5c" name="q5" value="C"><label for="q5c">C) Network packet filtering</label></li>
+                                <li><input type="radio" id="q5d" name="q5" value="correct"><label for="q5d">D) Exact set membership queries</label></li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <center><button type="button" onclick="calculateScore()">Submit</button></center>
+                </form>
+                <center><p id="result"></p></center>
+            </div>
+        </div>
+    </main>
 
-                </div>
-            </div>
-        </main>
-    
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Learning Labs</p>
-            </div>
-        </footer>
-    
-    </body>
-    </html>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let totalQuestions = 5;
+
+            // Get all answers
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            let q2 = document.querySelector('input[name="q2"]:checked');
+            let q3 = document.querySelector('input[name="q3"]:checked');
+            let q4 = document.querySelector('input[name="q4"]:checked');
+            let q5 = document.querySelector('input[name="q5"]:checked');
+
+            // Check if all questions are answered
+            if (!q1 || !q2 || !q3 || !q4 || !q5) {
+                document.getElementById("result").textContent = "Please answer all the questions.";
+                return;
+            }
+
