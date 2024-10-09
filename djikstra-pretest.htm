@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MY LEARNING Labs - Pretest</title>
     <link rel="stylesheet" href="css_m.css">
+    <style>
+        /* Styling the submit button */
+        button {
+            background-color: #4CAF50; /* Green background */
+            border: none; /* No border */
+            color: white; /* White text */
+            padding: 15px 32px; /* Padding */
+            text-align: center; /* Centered text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Inline-block for width/height control */
+            font-size: 16px; /* Font size */
+            margin: 20px 0; /* Margin */
+            cursor: pointer; /* Pointer cursor on hover */
+            border-radius: 8px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover */
+        }
+
+        /* Hover effect for the submit button */
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Center the button */
+        center button {
+            width: 200px; /* Fixed width */
+        }
+
+        /* Styling the result text */
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,9 +61,8 @@
     <main>
         <div class="container">
             <h1>Pretest</h1>
-            <h2>Djikstra's Algorithm Pretest</h2>
+            <h2>Dijkstra's Algorithm Pretest</h2>
             <div class="content">
-                
 
                 <div class="sidebar">
                     <ul>
@@ -36,70 +70,91 @@
                         <li><a href="./djikstra-overview.htm">Recap</a></li>
                         <li><a href="./djikstra-pretest.htm">Pretest</a></li>
                         <li><a href="#">Divide and Conquer</a></li>
-                        <li><a href="./djikstra-vid.htm">Djikstra's Algorithm</a></li>
+                        <li><a href="./djikstra-vid.htm">Dijkstra's Algorithm</a></li>
                         <li><a href="./djikstra-analysis.htm">Analysis</a></li>
                         <li><a href="./djikstra-posttest.htm">Posttest</a></li>
                         <li><a href="#">Further Readings/References</a></li>
-                        
                     </ul>
                 </div>
-                <ol>
-                    <li>
-                        <p>What is the primary purpose of Dijkstra's Algorithm? </p>
-                        <ul>
-                            <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) To find the maximum flow in a flow network </label></li>
-                            <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) To find the shortest path between two nodes in a graph</label></li>
-                            <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) To find the minimum spanning tree of a graph </label></li>
-                            <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) To find the maximum clique in a graph </label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What is the time complexity of Dijkstra's Algorithm? </p>
-                        <ul>
-                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A)  O(n^2) </label></li>
-                            <li><input type="radio" id="q2b" name="q2"><label for="q2b">B)  O(n log n) </label></li>
-                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) O(n) </label></li>
-                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) O(log n) </label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What data structure is used to implement Dijkstra's Algorithm? </p>
-                        <ul>
-                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Stack </label></li>
-                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Queue </label></li>
-                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Priority Queue </label></li>
-                            <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) Hash Table </label></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <p>What is the initial value of the distance of the starting node in Dijkstra's Algorithm? </p>
-                        <ul>
-                            <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) 0 </label></li>
-                            <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) Infinity </label></li>
-                            <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) Negative infinity </label></li>
-                            <li><input type="radio" id="q4d" name="q4"><label for="q4d">D)  Any arbitrary value <label></li>
-                        </ul>
-                    </li>
-                    
-<!--                         <li>
-                            <p>What is the space complexity of Kadane's Algorithm?</p>
+
+                <form id="pretest-form">
+                    <ol>
+                        <li>
+                            <p>What is the primary purpose of Dijkstra's Algorithm? </p>
                             <ul>
-                                <li><input type="radio" id="q5a" name="q5"><label for="q5a">A) O(n)</label></li>
-                                <li><input type="radio" id="q5b" name="q5"><label for="q5b">B) O(1)</label></li>
-                                <li><input type="radio" id="q5c" name="q5"><label for="q5c">C) O(log n)</label></li>
-                                <li><input type="radio" id="q5d" name="q5"><label for="q5d">D) O(n^2)</label></li>
+                                <li><input type="radio" id="q1a" name="q1"><label for="q1a">A) To find the maximum flow in a flow network </label></li>
+                                <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) To find the shortest path between two nodes in a graph</label></li>
+                                <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) To find the minimum spanning tree of a graph </label></li>
+                                <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) To find the maximum clique in a graph </label></li>
                             </ul>
-                        </li> -->
+                        </li>
+                        <li>
+                            <p>What is the time complexity of Dijkstra's Algorithm? </p>
+                            <ul>
+                                <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) O(n^2) </label></li>
+                                <li><input type="radio" id="q2b" name="q2"><label for="q2b">B) O(n log n) </label></li>
+                                <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) O(n) </label></li>
+                                <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) O(log n) </label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>What data structure is used to implement Dijkstra's Algorithm? </p>
+                            <ul>
+                                <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Stack </label></li>
+                                <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Queue </label></li>
+                                <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Priority Queue </label></li>
+                                <li><input type="radio" id="q3d" name="q3"><label for="q3d">D) Hash Table </label></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>What is the initial value of the distance of the starting node in Dijkstra's Algorithm? </p>
+                            <ul>
+                                <li><input type="radio" id="q4a" name="q4"><label for="q4a">A) 0 </label></li>
+                                <li><input type="radio" id="q4b" name="q4"><label for="q4b">B) Infinity </label></li>
+                                <li><input type="radio" id="q4c" name="q4"><label for="q4c">C) Negative infinity </label></li>
+                                <li><input type="radio" id="q4d" name="q4"><label for="q4d">D) Any arbitrary value </label></li>
+                            </ul>
+                        </li>
                     </ol>
-                </div>
+                    <center><button type="button" onclick="calculateScore()">Submit</button></center>
+                </form>
+                <center><p id="result"></p></center>
             </div>
-        </main>
-    
-        <footer>
-            <div class="container">
-                <p>&copy; 2024 Learning Labs</p>
-            </div>
-        </footer>
-    
-    </body>
-    </html>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let totalQuestions = 4;
+
+            // Get all answers
+            let q1 = document.querySelector('input[name="q1"]:checked');
+            let q2 = document.querySelector('input[name="q2"]:checked');
+            let q3 = document.querySelector('input[name="q3"]:checked');
+            let q4 = document.querySelector('input[name="q4"]:checked');
+
+            // Check if all questions are answered
+            if (!q1 || !q2 || !q3 || !q4) {
+                document.getElementById("result").textContent = "Please answer all the questions.";
+                return;
+            }
+
+            // Check answers
+            if (q1.id === "q1b") score++; // Correct answer is B
+            if (q2.id === "q2b") score++; // Correct answer is B
+            if (q3.id === "q3c") score++; // Correct answer is C
+            if (q4.id === "q4a") score++; // Correct answer is A
+
+            // Display the result
+            document.getElementById("result").textContent = "Your score: " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>
