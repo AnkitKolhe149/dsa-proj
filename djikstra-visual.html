@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dijkstra's Algorithm Visualization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #C5FF95;
+    }
+
+    #canvas {
+      border: 10px solid #00FF9C;
+      background-color: #FEFFA7;
+      display: block;
+    }
+
+    .controller {
+      margin-left: 20px;
+    }
+
+    .controller ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .controller li {
+      margin-bottom: 10px;
+    }
+
+    .controller button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .controller button:hover {
+      background-color: #0056b3;
+    }
+
+    #wrap_animationSpeed {
+      margin-top: 20px;
+    }
+
+    #wrap_animationSpeed label {
+      font-weight: bold;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    select {
+      padding: 5px;
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    #notification {
+      margin-top: 20px;
+      font-style: italic;
+      color: #161D6F;
+    }
+
+    #distanceNotification {
+      margin-top: 10px;
+      font-weight: bold;
+      color: green;
+    }
+
+    #pathNotification {
+      margin-top: 10px;
+      font-weight: bold;
+      color: black; /* Change color for path notification */
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="600" height="600"></canvas>
+  
+  <div class="controller">
+    <h3>For adding Nodes, select the two nodes below and then click Add Edge</h3>
+    <ul>
+      <li><button id="btn_addPoint">Add Point</button></li>
+      <li><button id="btn_addEdge">Add Edge</button></li>
+      <li id="wrap_animationSpeed">
+        <label>Animation Speed <span>(1500ms)</span></label>
+        <input type="range" id="speed" min="500" max="3000" step="500" value="1500">
+      </li>
+    </ul>
+    
+    <p>Select Starting Point and Destination <br>
+      from <select id="from"></select> to <select id="to"></select>
+    </p>
+    
+    <button id="btn_run_algorithm">
+      <i class="fa fa-play icon"></i> Run Algorithm
+    </button>
+    
+    <div id="notification">Loading...</div>
+    <div id="distanceNotification"></div> <!-- Display final distance here -->
+    <div id="pathNotification"></div> <!-- Display nodes followed in the path -->
+  </div>
+
+  <script>
+    // Canvas setup
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const points = [];
+    const edges = [];
+    const adjList = {};
+    let selectedStart = null;
+    let selectedEnd = null;
+    let speed = 1500;
+
+    // Update the animation speed from the slider
+    document.getElementById('speed').addEventListener('input', function () {
+      speed = this.value;
+    });
+
+    // Function to draw a point on the canvas
+    function drawPoint(x, y, id) {
+      ctx.beginPath();
+      ctx.arc(x, y, 10, 0, 2 * Math.PI);
+      ctx.fillStyle = "#5FBDFF";
+      ctx.fill();
+      ctx.stroke();
+      ctx.closePath();
+      ctx.font = "14px Arial";
+      ctx.fillStyle = "black";
+      ctx.fillText(id, x - 3, y + 3); // Label the point with its ID
+    }
+
+    // Function to draw an edge between two points
+    function drawEdge(x1, y1, x2, y2, weight) {
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+      const midX = (x1 + x2) / 2;
+      const midY = (y1 + y2) / 2;
+      ctx.fillText(weight, midX, midY); // Label the edge with its weight
+    }
+
+    // Function to add a new point (node)
+    function addPoint() {
+      const id = points.length; // Assign an ID based on the current number of points
+      const x = Math.random() * 500 + 50; // Random x position
+      const y = Math.random() * 500 + 50; // Random y position
+      points.push({ x, y, id }); // Add point to the array
+      drawPoint(x, y, id); // Draw the point
+      adjList[id] = []; // Initialize adjacency list entry for the new point
+      
+      updateSelectOptions(); // Update the select options for the points
+    }
+
+    // Function to update the select dropdowns with current points
+    function updateSelectOptions() {
+      const fromSelect = document.getElementById('from');
+      const toSelect = document.getElementById('to');
+      fromSelect.innerHTML = "";
+      toSelect.innerHTML = "";
+      points.forEach(point => {
+        fromSelect.innerHTML += `<option value="${point.id}">${point.id}</option>`;
+        toSelect.innerHTML += `<option value="${point.id}">${point.id}</option>`;
+      });
+    }
+
+    // Function to add an edge between two points
+    function addEdge() {
+      if (points.length < 2) return alert('You need at least two points!');
+      const from = parseInt(document.getElementById('from').value);
+      const to = parseInt(document.getElementById('to').value);
+      if (from === to) return alert('Cannot create edge between the same node.');
+
+      const weight = Math.floor(Math.random() * 20) + 1; // Random weight between 1 and 20
+      const p1 = points[from];
+      const p2 = points[to];
+      edges.push({ from, to, weight }); // Add edge to the array
+      adjList[from].push({ node: to, weight }); // Update adjacency list
+      adjList[to].push({ node: from, weight }); // Update adjacency list (undirected graph)
+      
+      drawEdge(p1.x, p1.y, p2.x, p2.y, weight); // Draw the edge
+    }
+
+    // Function to run Dijkstra's algorithm
+    function runDijkstra() {
+      selectedStart = parseInt(document.getElementById('from').value);
+      selectedEnd = parseInt(document.getElementById('to').value);
+
+      const dist = {};
+      const prev = {};
+      const pq = new PriorityQueue();
+
+      // Initialize distances and previous nodes
+      points.forEach(p => {
+        dist[p.id] = Infinity;
+        prev[p.id] = null;
+      });
+
+      dist[selectedStart] = 0; // Distance to the starting node is 0
+      pq.enqueue(selectedStart, 0); // Enqueue the starting node
+
+      const visited = new Set(); // Track visited nodes
+
+      function step() {
+        if (pq.isEmpty()) {
+          const path = visualizePath(prev, selectedEnd); // Visualize the shortest path
+          displayDistance(dist[selectedEnd]); // Display the final distance
+          displayPath(path); // Display the nodes in the path
+          return;
+        }
+
+        const { element: u } = pq.dequeue(); // Get the node with the smallest distance
+        visited.add(u); // Mark node as visited
+
+        // Update distances for neighbors of u
+        adjList[u].forEach(neighbor => {
+          if (!visited.has(neighbor.node)) {
+            const alt = dist[u] + neighbor.weight; // Alternative distance
+            if (alt < dist[neighbor.node]) {
+              dist[neighbor.node] = alt; // Update distance
+              prev[neighbor.node] = u; // Update previous node
+              pq.enqueue(neighbor.node, alt); // Enqueue neighbor
+            }
+          }
+        });
+
+        setTimeout(step, speed); // Continue the algorithm after a delay
+      }
+
+      step(); // Start the algorithm
+    }
+
+    // Function to visualize the path from source to destination
+    function visualizePath(prev, target) {
+      let u = target;
+      const path = []; // Store the path nodes
+      while (prev[u] !== null) {
+        path.unshift(u); // Add the node to the beginning of the path array
+        const p1 = points[u];
+        const p2 = points[prev[u]];
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.strokeStyle = 'red'; // Highlight the shortest path in red
+        ctx.lineWidth = 3;
+        ctx.stroke();
+        ctx.lineWidth = 1;
+        u = prev[u]; // Move to the previous node
+      }
+      path.unshift(selectedStart); // Include the starting node
+      return path; // Return the path array
+    }
+
+    // Function to display the final distance in the notification area
+    function displayDistance(distance) {
+      const distanceNotification = document.getElementById('distanceNotification');
+      distanceNotification.textContent = `Shortest Distance from ${selectedStart} to ${selectedEnd}: ${distance}`;
+    }
+
+    // Function to display the path in the notification area
+    function displayPath(path) {
+      const pathNotification = document.getElementById('pathNotification');
+      pathNotification.textContent = `Nodes followed in the path: ${path.join(' -> ')}`; // Join the path array with arrows
+    }
+
+    // Event listeners for buttons
+    document.getElementById('btn_addPoint').addEventListener('click', addPoint);
+    document.getElementById('btn_addEdge').addEventListener('click', addEdge);
+    document.getElementById('btn_run_algorithm').addEventListener('click', runDijkstra);
+
+    // Priority Queue class for Dijkstra's algorithm
+    class PriorityQueue {
+      constructor() {
+        this.collection = [];
+      }
+      enqueue(element, priority) {
+        const newNode = { element, priority };
+        if (this.isEmpty()) {
+          this.collection.push(newNode);
+        } else {
+          let added = false;
+          for (let i = 0; i < this.collection.length; i++) {
+            if (newNode.priority < this.collection[i].priority) {
+              this.collection.splice(i, 0, newNode);
+              added = true;
+              break;
+            }
+          }
+          if (!added) {
+            this.collection.push(newNode);
+          }
+        }
+      }
+      dequeue() {
+        return this.collection.shift(); // Remove and return the first element
+      }
+      isEmpty() {
+        return this.collection.length === 0; // Check if the queue is empty
+      }
+    }
+  </script>
+</body>
+</html>
