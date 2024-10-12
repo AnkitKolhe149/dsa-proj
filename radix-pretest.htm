@@ -60,8 +60,8 @@
 
     <main>
         <div class="container">
-            <h1>Posttest</h1>
-            <h2>Kadane's Algorithm Posttest</h2>
+            <h1>Pretest</h1>
+            <h2>Radix Sort Pretest</h2>
             <div class="content">
                 <div class="sidebar">
                     <ul>
@@ -69,7 +69,7 @@
                         <li><a href="./radix-overview">Recap</a></li>
                         <li><a href="./radix-pretest.htm">Pretest</a></li>
                         <li><a href="#">Divide and Conquer</a></li>
-                        <li><a href="./radix-vid.htm">Kadane's Algorithm</a></li>
+                        <li><a href="./radix-vid.htm">Radix sort Algorithm</a></li>
                         <li><a href="./radix-analysis.htm">Analysis</a></li>
                         <li><a href="./radix-posttest.htm">Posttest</a></li>
                         <li><a href="#">Further Readings/References</a></li>
@@ -78,32 +78,33 @@
                 </div>
                 <ol>
                     <li>
-                        <p>What is the time complexity of Kadane's Algorithm?</p>
+                        <p>What is the time complexity of Radix Sort?</p>
                         <ul>
-                            <li><input type="radio" id="q1a" name="q1" value="correct"><label for="q1a">A) O(n)</label></li>
+                            <li><input type="radio" id="q1a" name="q1" value="correct"><label for="q1a">A) O(n * k)</label></li>
                             <li><input type="radio" id="q1b" name="q1"><label for="q1b">B) O(n<sup>2</sup>)</label></li>
                             <li><input type="radio" id="q1c" name="q1"><label for="q1c">C) O(log n)</label></li>
                             <li><input type="radio" id="q1d" name="q1"><label for="q1d">D) O(n log n)</label></li>
                         </ul>
                     </li>
                     <li>
-                        <p>Which of the following is a key advantage of Kadane's Algorithm?</p>
+                        <p>In Radix Sort, which digit is processed first?<p>
                         <ul>
-                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) Space Efficiency</label></li>
-                            <li><input type="radio" id="q2b" name="q2" value="correct"><label for="q2b">B) Time Efficiency</label></li>
-                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) Implementation Simplicity</label></li>
-                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) All of the Above</label></li>
+                            <li><input type="radio" id="q2a" name="q2"><label for="q2a">A) Most Significant Digit                            </label></li>
+                            <li><input type="radio" id="q2b" name="q2" value="correct"><label for="q2b">B) Least Significant Digit </label></li>
+                            <li><input type="radio" id="q2c" name="q2"><label for="q2c">C) Middle Digit                            </label></li>
+                            <li><input type="radio" id="q2d" name="q2"><label for="q2d">D) All Digits Simultaneously                            </label></li>
                         </ul>
                     </li>
                     <li>
-                        <p>What is the output of Kadane's Algorithm?</p>
+                        <p>Which of the following is NOT a prerequisite for using Radix Sort effectively?</p>
                         <ul>
-                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Maximum Subarray Sum</label></li>
-                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Maximum Product Subarray</label></li>
-                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C) Minimum Subarray Sum</label></li>
-                            <li><input type="radio" id="q3d" name="q3" value="correct"><label for="q3d">D) Maximum Subarray Length</label></li>
+                            <li><input type="radio" id="q3a" name="q3"><label for="q3a">A) Numbers are integers                            </label></li>
+                            <li><input type="radio" id="q3b" name="q3"><label for="q3b">B) Numbers are of the same length                            </label></li>
+                            <li><input type="radio" id="q3c" name="q3"><label for="q3c">C)  Numbers have a fixed range                            </label></li>
+                            <li><input type="radio" id="q3d" name="q3" value="correct"><label for="q3d">D) Data can be ordered in any fashion                            </label></li>
                         </ul>
                     </li>
+                    
                 </ol>
                 <center>
                     <button onclick="calculateScore()">Submit</button>
