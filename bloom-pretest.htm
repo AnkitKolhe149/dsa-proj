@@ -153,4 +153,19 @@
                 document.getElementById("result").textContent = "Please answer all the questions.";
                 return;
             }
+            if(q1.value === "correct")score++;
+            if(q2.value === "correct")score++;
+            if(q3.value === "correct")score++;
+            if(q4.value === "correct")score++;
+            if (q5.value === "correct") score++;
+
+    // Display the result
+    document.getElementById("result").textContent = "Your score: " + score + "/" + totalQuestions;
+}
+        </script>
+    </body>
+</html>
+            
+            
+            
 
