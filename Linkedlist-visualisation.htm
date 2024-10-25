@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Linked List Visualization</title>
+  <style>
+    .node {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .arrow {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 20px;
+    }
+    #controls {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Interactive Linked List Visualization</h2>
+<div id="controls">
+  <input type="number" id="nodeValue" placeholder="Enter node value" />
+  <button onclick="addNodeAtEnd()">Add Node at End</button>
+  <button onclick="addNodeAtFront()">Add Node at Front</button>
+  <br><br>
+  <input type="number" id="nodePosition" placeholder="Enter position" />
+  <button onclick="addNodeAtPosition()">Add Node at Position</button>
+</div>
+<div id="linkedList"></div>
+
+<script>
+  // Node class
+  class Node {
+    constructor(value) {
+      this.value = value;
+      this.next = null;
+    }
+  }
+
+  // LinkedList class
+  class LinkedList {
+    constructor() {
+      this.head = null;
+    }
+
+    // Insert a new node at the end
+    append(value) {
+      const newNode = new Node(value);
+      if (!this.head) {
+        this.head = newNode;
+      } else {
+        let current = this.head;
+        while (current.next) {
+          current = current.next;
+        }
+        current.next = newNode;
+      }
+      this.render();
+    }
+
+    // Insert a new node at the beginning
+    prepend(value) {
+      const newNode = new Node(value);
+      newNode.next = this.head;
+      this.head = new
