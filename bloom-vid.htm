@@ -3,69 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY LEARNING Labs</title>
-    <link rel="stylesheet" href="css_m.css">
+    <title>Bloom Filter Visualization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 5px;
+        }
+
+        .filter-bit {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #f0f0f0;
+            transition: background-color 0.3s ease;
+        }
+
+        .filter-bit.active {
+            background-color: #00b894;
+        }
+
+        .form-container {
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 200px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff8b73;
+        }
+    </style>
 </head>
-
-
 <body>
-    
-    
-    <header>
-        <div class="container">
-            
-            <nav>
-                <div class="logo">
-                    <img src="logo.png" alt="MY LEARNING Labs Logo">
-                </div>
+    <h1>Bloom Filter Visualization</h1>
+    <div class="filter-container" id="filterContainer">
+        <!-- Bloom filter bits go here -->
+    </div>
 
-                <ul>
-                    <li><a href="./MAIN.html">HOME</a></li>
-                    <li><a href="./contributors.htm">CONTRIBUTORS</a></li>
-                    <li><a href="./contact.htm">CONTACT</a></li>
-                </ul>
+    <div class="form-container">
+        <input type="text" id="elementInput" placeholder="Enter element" />
+        <button onclick="addToBloomFilter()">Add to Bloom Filter</button>
+        <button onclick="checkBloomFilter()">Check in Bloom Filter</button>
+    </div>
 
-            </nav>
+    <script>
+        const filterSize = 20;
+        let bloomFilter = Array(filterSize).fill(0);
 
-        </div>
-    </header>
-    
-    
-    <main>
-    <div class="container">
-        <h1>Bloom's Algorithm </h1>
-        <h2>Aim</h2>
-
-           <div class="sidebar">
-                    <ul>
-                        <li><a href="./bloom-overview.htm">Overview</a></li>
-                        <li><a href="./bloom-pretest.htm">Pretest</a></li>
-                        <li><a href="./bloom-vid.htm">Bloom's Algorithm</a></li>
-                        <li><a href="./bloom-analysis.htm">Analysis</a></li>
-                        <li><a href="./bloom-posttest.htm">Posttest</a></li>
-                    </ul>
-                </div>
+        const filterContainer = document.getElementById("filterContainer");
         
-        <div class="content">
-            <!-- ... -->
-            <div class="main-content">
-                <h2>Bloom's Algorithm</h2>
-                <div class="info">
-                    <!-- ... -->
-                </div>
-                <div class="video-container">
-                    <iframe width="914" height="514" src="https://www.youtube.com/watch?v=5geaRjUZ3Ck" title="Bloom&#39;s Algorithm to Maximum Sum Subarray Problem" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
-</main><footer>
-    <div class="container">
-        <p>&copy; 2024 Learning Labs. All rights reserved.</p>
-    </div>
-</footer>
+        // Render the initial Bloom filter bits
+        function renderBloomFilter() {
+            filterContainer.innerHTML = '';
+            bloomFilter.forEach((bit, index) => {
+                const bitDiv = document.createElement("div");
+                bitDiv.classList.add("filter-bit");
+                if (bit === 1) {
+                    bitDiv.classList.add("active");
+                }
+                bitDiv.innerText = bit;
+                filterContainer.appendChild(bitDiv);
+            });
+        }
 
+        // Simulated hash functions
+        function hash1(str) {
+            return str.length % filterSize;
+        }
 
-<script src="javas_m.js"></script>
+        function hash2(str) {
+            return Array.from(str).reduce((sum, char) => sum + char.charCodeAt(0), 0) % filterSize;
+        }
+
+        function hash3(str) {
+            return str.split("").reduce((prod, char) => prod * char.charCodeAt(0), 1) % filterSize;
+        }
+
+        // Add element to Bloom filter
+        function addToBloomFilter() {
+            const element = document.getElementById("elementInput").value;
+            if (!element) return;
+            const indices = [hash1(element), hash2(element), hash3(element)];
+            indices.forEach(index => bloomFilter[index] = 1);
+            renderBloomFilter();
+            document.getElementById("elementInput").value = '';
+            alert(`Element "${element}" added to Bloom filter.`);
+        }
+
+        // Check element in Bloom filter
+        function checkBloomFilter() {
+            const element = document.getElementById("elementInput").value;
+            if (!element) return;
+            const indices = [hash1(element), hash2(element), hash3(element)];
+            const exists = indices.every(index => bloomFilter[index] === 1);
+            alert(`Element "${element}" ${exists ? "may be present" : "is not present"} in the Bloom filter.`);
+        }
+
+        // Initialize the visualization
+        renderBloomFilter();
+    </script>
 </body>
 </html>
