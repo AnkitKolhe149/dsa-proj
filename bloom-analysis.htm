@@ -7,37 +7,27 @@
     <link rel="stylesheet" href="css_m.css">
 </head>
 
-
 <body>
-    
-    
     <header>
         <div class="container">
-            
             <nav>
                 <div class="logo">
                     <img src="logo.png" alt="MY LEARNING Labs Logo">
                 </div>
-
                 <ul>
                     <li><a href="./MAIN.html">HOME</a></li>
                     <li><a href="./contributors.htm">CONTRIBUTORS</a></li>
                     <li><a href="./contact.htm">CONTACT</a></li>
                 </ul>
-
             </nav>
-
         </div>
     </header>
 
-
     <main>
         <div class="container">
-            <h1>Bloom's Algorithm </h1>
+            <h1>Bloom's Algorithm</h1>
             <h2>Aim</h2>
             <div class="content">
-                
-                
                 <div class="sidebar">
                     <ul>
                         <li><a href="./bloom-overview.htm">Overview</a></li>
@@ -47,8 +37,6 @@
                         <li><a href="./bloom-posttest.htm">Posttest</a></li>
                     </ul>
                 </div>
-
-
                 <div class="main-content">
                     <h2>Bloom's Algorithm</h2>
                     <div class="info">
@@ -56,7 +44,7 @@
                         <p>1 hour</p>
                     </div>
                     <div class="info">
-                        <h3>What is the complexity of the algorithm ?</h3>
+                        <h3>What is the complexity of the algorithm?</h3>
                         <ul>
                             <li>Time Complexity</li>
                             <p>
@@ -66,14 +54,14 @@
                                 Insertion: To insert each element, Bloom's Algorithm uses k hash functions. Each hash function takes constant time, so inserting a single element takes 𝑂(𝑘) time. For 𝑛 elements, this results in a total insertion time complexity of 𝑂(𝑛 * 𝑘).
                             </p>
                             <p>
-                                Querying: Similarly, checking if an element is present involves calculating 𝑘 hash functions, which takes constant time for
-                            </ul>                        
+                                Querying: Similarly, checking if an element is present involves calculating 𝑘 hash functions, which takes constant time.
+                            </p>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-
 
     <footer>
         <div class="container">
@@ -81,7 +69,28 @@
         </div>
     </footer>
 
-
-    <script src="javas_m.js"></script>
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", function() {
+            const currentLocation = location.href;
+            const menuItem = document.querySelectorAll("nav ul li a");
+            
+            menuItem.forEach(item => {
+                if (item.href === currentLocation) {
+                    item.style.color = "#FFD700";
+                    item.style.fontWeight = "bold";
+                }
+            });
+        });
+        
+        document.querySelectorAll("a[href^='#']").forEach(anchor => {
+            anchor.addEventListener("click", function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 </body>
 </html>
