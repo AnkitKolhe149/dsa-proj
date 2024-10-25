@@ -3,42 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY LEARNING Labs - Bloom's Algorithm</title>
+    <title>MY LEARNING Labs</title>
     <link rel="stylesheet" href="css_m.css">
 </head>
 
+
 <body>
+
+
     <header>
         <div class="container">
+
             <nav>
                 <div class="logo">
                     <img src="logo.png" alt="MY LEARNING Labs Logo">
                 </div>
+
                 <ul>
                     <li><a href="./MAIN.html">HOME</a></li>
                     <li><a href="./contributors.htm">CONTRIBUTORS</a></li>
                     <li><a href="./contact.htm">CONTACT</a></li>
                 </ul>
+
             </nav>
+
         </div>
     </header>
 
+
     <main>
         <div class="container">
-            <h1>Bloom's Algorithm Visualization</h1>
-            <div id="controls">
-                <button onclick="resetHashTable()">Reset Hash Table</button>
-                <input type="number" id="inputValue" placeholder="Enter value to store/search" />
-                <button onclick="insertValue()">Insert</button>
-                <button onclick="searchValue()">Search</button>
-            </div>
-            <div id="visualization">
-                <p id="tableStatus">Hash table (bit array) size not set yet. Please reset to start.</p>
-                <div id="hashCalculations"></div>
-                <div id="bitArray"></div>
+            <h1>Bloom's Algorithm </h1>
+            <h2>Aim</h2>
+            <div class="content">
+
+
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="./bloom-overview.htm">Overview</a></li>
+                        <li><a href="./bloom-pretest.htm">Pretest</a></li>
+                        <li><a href="./bloom-vid.htm">Bloom's Algorithm</a></li>
+                        <li><a href="./bloom-analysis.htm">Analysis</a></li>
+                        <li><a href="./bloom-posttest.htm">Posttest</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="main-content">
+                    <h2>Bloom's Algorithm</h2>
+                    <div class="info">
+                        <h3>Estimated Time</h3>
+                        <p>1 hour</p>
+                    </div>
+                    <div class="info">
+                        <h3>What is the complexity of the algorithm ?</h3>
+                        <ul>
+                            <li>Time Complexity</li>
+                            <p>
+                                Initialization: We initialize the necessary data structures (e.g., a bit array) in Bloom's Algorithm, which takes time proportional to the size of the bit array, 𝑂(𝑚).
+                            </p>
+                            <p>
+                                Insertion: To insert each element, Bloom's Algorithm uses k hash functions. Each hash function takes constant time, so inserting a single element takes 𝑂(𝑘) time. For 𝑛 elements, this results in a total insertion time complexity of 𝑂(𝑛 * 𝑘).
+                            </p>
+                            <p>
+                                Querying: Similarly, checking if an element is present involves calculating 𝑘 hash functions, which takes constant time for
+                            </ul>                        
+                    </div>
+                </div>
             </div>
         </div>
     </main>
+
 
     <footer>
         <div class="container">
@@ -46,82 +81,7 @@
         </div>
     </footer>
 
-    <script>
-        let bitArray = [];
-        let size = 0;
-        const numHashFunctions = 3; // Number of hash functions
 
-        // Function to initialize or reset hash table
-        function resetHashTable() {
-            size = parseInt(prompt("Enter size of hash table (bit array):"));
-            if (isNaN(size) || size <= 0) {
-                alert("Please enter a valid positive number.");
-                return;
-            }
-            bitArray = new Array(size).fill(0);
-            displayBitArray();
-            document.getElementById("tableStatus").textContent = `Hash table initialized with size ${size}.`;
-            document.getElementById("hashCalculations").innerHTML = '';
-        }
-
-        // Hash functions for simulation
-        function hash1(value) { return (value % size); }
-        function hash2(value) { return (value * 3 % size); }
-        function hash3(value) { return (value * 7 % size); }
-
-        // Display current state of the bit array
-        function displayBitArray() {
-            const bitArrayDiv = document.getElementById("bitArray");
-            bitArrayDiv.innerHTML = "Bit Array: [" + bitArray.map(bit => `<span>${bit}</span>`).join(", ") + "]";
-        }
-
-        // Insert value into the hash table with hash function calculations
-        function insertValue() {
-            const inputValue = parseInt(document.getElementById("inputValue").value);
-            if (isNaN(inputValue)) {
-                alert("Please enter a valid number to store.");
-                return;
-            }
-
-            const h1 = hash1(inputValue);
-            const h2 = hash2(inputValue);
-            const h3 = hash3(inputValue);
-
-            bitArray[h1] = 1;
-            bitArray[h2] = 1;
-            bitArray[h3] = 1;
-
-            document.getElementById("hashCalculations").innerHTML = `
-                <p>Insert calculations for value <strong>${inputValue}</strong>:</p>
-                <p>Hash 1: Position ${h1}</p>
-                <p>Hash 2: Position ${h2}</p>
-                <p>Hash 3: Position ${h3}</p>
-            `;
-            displayBitArray();
-        }
-
-        // Search for a value in the hash table with visualization of hash checks
-        function searchValue() {
-            const inputValue = parseInt(document.getElementById("inputValue").value);
-            if (isNaN(inputValue)) {
-                alert("Please enter a valid number to search.");
-                return;
-            }
-
-            const h1 = hash1(inputValue);
-            const h2 = hash2(inputValue);
-            const h3 = hash3(inputValue);
-
-            const searchResult = (bitArray[h1] === 1 && bitArray[h2] === 1 && bitArray[h3] === 1);
-
-            document.getElementById("hashCalculations").innerHTML = `
-                <p>Search calculations for value <strong>${inputValue}</strong>:</p>
-                <p>Hash 1: Position ${h1} - <strong>${bitArray[h1] === 1 ? "Match (1)" : "No Match (0)"}</strong></p>
-                <p>Hash 2: Position ${h2} - <strong>${bitArray[h2] === 1 ? "Match (1)" : "No Match (0)"}</strong></p>
-                <p>Hash 3: Position ${h3} - <strong>${bitArray[h3] === 1 ? "Match (1)" : "No Match (0)"}</strong></p>
-                <p>Result: ${searchResult ? "Possibly in set" : "Definitely not in set"}</p>
-            `;
-        }
-    </script>
+    <script src="javas_m.js"></script>
 </body>
 </html>
