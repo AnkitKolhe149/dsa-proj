@@ -165,6 +165,12 @@
             align-items: center;
         }
 
+        .hash-info {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+
         footer {
             background-color: #444;
             color: #fff;
@@ -214,6 +220,10 @@
             <input type="text" id="input-element" placeholder="Enter an element">
             <button onclick="addElement()">Add Element</button>
         </div>
+
+        <div class="hash-info" id="hash-info">
+            <!-- Hash function information will be displayed here -->
+        </div>
     </div>
 </main>
 
@@ -227,6 +237,7 @@
     const filterSize = 10;  // Number of bits in the Bloom Filter
     const bloomFilter = new Array(filterSize).fill(0);
     const bloomFilterElement = document.getElementById('bloom-filter');
+    const hashInfoElement = document.getElementById('hash-info');
 
     // Initialize Bloom Filter display
     function initializeFilter() {
@@ -240,7 +251,7 @@
         }
     }
 
-    // Hash functions (for simplicity)
+    // Hash functions
     function hash1(str) {
         return str.charCodeAt(0) % filterSize;
     }
@@ -249,7 +260,7 @@
         return (str.charCodeAt(0) + str.length) % filterSize;
     }
 
-    // Add element to Bloom Filter
+    // Add element to Bloom Filter with delay and hash info
     function addElement() {
         const element = document.getElementById('input-element').value;
         if (element === '') return;
@@ -257,18 +268,22 @@
         const hash1Index = hash1(element);
         const hash2Index = hash2(element);
 
-        bloomFilter[hash1Index] = 1;
-        bloomFilter[hash2Index] = 1;
+        hashInfoElement.innerHTML = `Hash Function 1 (Index: ${hash1Index}), Hash Function 2 (Index: ${hash2Index})`;
 
-        document.getElementById('bit-' + hash1Index).classList.add('active');
-        document.getElementById('bit-' + hash1Index).innerText = '1';
-        document.getElementById('bit-' + hash2Index).classList.add('active');
-        document.getElementById('bit-' + hash2Index).innerText = '1';
+        setTimeout(() => {
+            bloomFilter[hash1Index] = 1;
+            document.getElementById('bit-' + hash1Index).classList.add('active');
+            document.getElementById('bit-' + hash1Index).innerText = '1';
+        }, 500);
+
+        setTimeout(() => {
+            bloomFilter[hash2Index] = 1;
+            document.getElementById('bit-' + hash2Index).classList.add('active');
+            document.getElementById('bit-' + hash2Index).innerText = '1';
+        }, 1000);
 
         document.getElementById('input-element').value = '';
     }
 
     initializeFilter();
-</script>
-</body>
-</html>
+</
