@@ -9,26 +9,29 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #f0f2f5;
             font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
         }
 
         header {
-            background-color: #2a2d34;
+            background-color: #2c3e50;
             padding: 20px;
             text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         header h1 {
-            color: white;
-            font-size: 2.5rem;
+            font-size: 2.5em;
+            font-weight: bold;
         }
 
         nav {
@@ -39,191 +42,110 @@
             color: white;
             text-decoration: none;
             margin: 0 15px;
-            font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: bold;
+            font-size: 1.2em;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #f8b400;
+            color: #84fab0;
         }
 
-        /* Content Section */
-        .content {
+        .main-content {
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             justify-content: center;
-            padding: 50px;
+            align-items: center;
+            flex: 1;
+        }
+
+        .main-content h1 {
+            font-size: 4em;
+            color: white;
+            margin-bottom: 50px;
+            position: relative;
+            animation: slide-in 2s ease-in-out forwards;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
             gap: 20px;
-            background-color: #f0f2f5;
         }
 
-        .content-item {
-            background-color: white;
+        .container div {
+            width: 150px;
+            height: 150px;
+            background-color: rgba(68, 170, 203, 0.512);
             border-radius: 15px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-            width: 280px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .content-item:hover {
+        .container div:hover {
+            background-color: #8fd3f4;
             transform: translateY(-10px);
-            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .content-item h3 {
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-            color: #333;
+        .container div::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: skewX(-25deg);
+            transition: left 0.5s ease;
         }
 
-        .content-item p {
-            color: #666;
-            margin-bottom: 20px;
+        .container div:hover::after {
+            left: 100%;
         }
 
-        .content-item .btn {
-            background-color: #f8b400;
-            color: white;
-            font-size: 1rem;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+        .container div p {
+            z-index: 1;
         }
 
-        .content-item .btn:hover {
-            background-color: #d49a00;
-            transform: translateY(-5px);
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            padding: 50px;
-            background-color: #fff;
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .testimonial-item {
-            margin: 20px 0;
-        }
-
-        .testimonial-item p {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #666;
-        }
-
-        .testimonial-item span {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-            color: #333;
-        }
-
-        /* Featured Courses Section */
-        .featured-courses {
-            background-color: #2a2d34;
-            padding: 50px;
-            text-align: center;
-            color: white;
-        }
-
-        .featured-courses h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-
-        .featured-course-item {
-            margin: 20px 0;
-        }
-
-        .featured-course-item h3 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #f8b400;
-        }
-
-        .featured-course-item p {
-            font-size: 1.1rem;
-            color: #ddd;
-        }
-
-        /* Call-to-Action Section */
-        .call-to-action {
-            padding: 50px;
-            background-color: #f8b400;
-            text-align: center;
-        }
-
-        .call-to-action h2 {
-            font-size: 2.5rem;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .call-to-action p {
-            font-size: 1.2rem;
-            color: white;
-            margin-bottom: 40px;
-        }
-
-        .call-to-action .btn {
-            background-color: white;
-            color: #2a2d34;
-            font-size: 1.2rem;
-            font-weight: bold;
-            padding: 15px 30px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .call-to-action .btn:hover {
-            background-color: #44474e;
-            color: white;
-        }
-
-        /* Footer */
         footer {
-            background-color: #2a2d34;
+            background-color: #2c3e50;
             padding: 20px;
             text-align: center;
             color: white;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
         }
 
         footer p {
-            margin-bottom: 5px;
+            font-size: 1em;
         }
 
         footer a {
-            color: #f8b400;
+            color: #84fab0;
             text-decoration: none;
         }
 
         footer a:hover {
             text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .content-item {
-                width: 100%;
-            }
-
-            .call-to-action h2 {
-                font-size: 2rem;
-            }
         }
     </style>
 </head>
@@ -240,66 +162,39 @@
         </nav>
     </header>
 
-    <!-- Content Section -->
-    <section class="content">
-        <div class="content-item">
-            <h3>Bloom's Filter</h3>
-            <p>Learn about Bloom's Filter and how it helps in fast data checks.</p>
-            <button class="btn" onclick="redirectTo('./bloom-overview.htm')">Learn More</button>
-        </div>
-        <div class="content-item">
-            <h3>Dijkstra's Algorithm</h3>
-            <p>Understand the shortest path algorithm used in network routing.</p>
-            <button class="btn" onclick="redirectTo('djikstra-overview.htm')">Learn More</button>
-        </div>
-        <div class="content-item">
-            <h3>Linked List</h3>
-            <p>Master the fundamentals of Linked Lists and their applications.</p>
-            <button class="btn" onclick="redirectTo('./linklist-overview.htm')">Learn More</button>
-        </div>
-        <div class="content-item">
-            <h3>Radix Sort</h3>
-            <p>Explore the efficient sorting algorithm for non-comparative sorting.</p>
-            <button class="btn" onclick="redirectTo('./radix-overview.htm')">Learn More</button>
-        </div>
-        <div class="content-item">
-            <h3>Kadane's Algorithm</h3>
-            <p>Learn how to find the maximum sum subarray in linear time.</p>
-            <button class="btn" onclick="redirectTo('./kadane-overview.htm')">Learn More</button>
-        </div>
-    </section>
+    <!-- Main Content Section -->
+    <div class="main-content">
+        <h1>Explore Knowledge</h1>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>What Our Learners Say</h2>
-        <div class="testimonial-item">
-            <p>"Learning Labs has completely changed the way I approach learning. The courses are concise and to the point."</p>
-            <span>– Daksh , Data Scientist</span>
+        <div class="container">
+            <div onclick="redirectTo('./bloom-overview.htm')">
+                <p>Bloom's Filter</p>
+            </div>
+            <div onclick="redirectTo('./djikstra-overview.htm')">
+                <p>Djikstra's Algorithm</p>
+            </div>
+            <div onclick="redirectTo('./linklist-overview.htm')">
+                <p>Linked List</p>
+            </div>
+            <div onclick="redirectTo('./radix-overview.htm')">
+                <p>Radix Sort</p>
+            </div>
+            <div onclick="redirectTo('./kadane-overview.htm')">
+                <p>Kadane's Algorithm</p>
+            </div>
         </div>
-        <div class="testimonial-item">
-            <p>"The courses offered here helped me land my dream job. The instructors are highly knowledgeable and approachable."</p>
-            <span>– Ankit Kolhe, Software Engineer</span>
-        </div>
-    </section>
-
-    <!-- Featured Courses Section -->
-    <section class="featured-courses">
-        <h2>Featured Courses</h2>
-        <div class="featured-course-item">
-            <h3>Machine Learning for Beginners</h3>
-            <p>Start your journey into the world of AI with our beginner-friendly Machine Learning course.</p>
-        </div>
-        <div class="featured-course-item">
-            <h3>Full Stack Web Development</h3>
-            <p>Learn how to build complete websites and web applications with this comprehensive course.</p>
-        </div>
-    </section>
-
-    <!-- Call-to-Action Section -->
-    <section class="call-to-action">
-        <h2>Ready to Elevate Your Skills?</h2>
-        <p>Join thousands of learners and start achieving your career goals with our top-rated courses.</p>
-        <button class="btn" onclick="redirectTo('#courses')">Explore Courses</button>
-    </section>
+    </div>
 
     <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Learning Labs. All Rights Reserved. | <a href="#privacy">Privacy Policy</a></p>
+    </footer>
+
+    <script>
+        function redirectTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
