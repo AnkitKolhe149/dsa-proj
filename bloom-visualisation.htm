@@ -1,1 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom's Algorithm Visualization</title>
+    <link rel="stylesheet" href="css_m.css"> <!-- Importing the CSS file -->
+    <style>
+        /* Basic styles for layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #6c87f5;
+        }
+        .container {
+            display: flex;
+            flex: 1;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #fff;
+            padding: 15px;
+            border-right: 1px solid #ccc;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .sidebar li a {
+            display: block;
+            padding: 10px;
+            color: #6c87f5;
+            text-decoration: none;
+        }
+        .sidebar li a:hover {
+            background-color: #e3e6f0;
+            border-radius: 5px;
+        }
+        .main-content {
+            padding: 20px;
+            width: 100%;
+        }
+        #controls button, #controls input {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        #bitArray span {
+            display: inline-block;
+            padding: 8px;
+            background-color: #6c87f5;
+            color: #fff;
+            margin: 0 2px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="logo.png" alt="MY LEARNING Labs Logo">
+                </div>
+                <ul>
+                    <li><a href="./MAIN.html">HOME</a></li>
+                    <li><a href="./contributors.htm">CONTRIBUTORS</a></li>
+                    <li><a href="./contact.htm">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="sidebar">
+            <ul>
+                <li><a href="./bloom-overview.htm">Overview</a></li>
+                <li><a href="./bloom-pretest.htm">Pretest</a></li>
+                <li><a href="./bloom-vid.htm">Bloom's Algorithm</a></li>
+                <li><a href="./bloom-visualisation.htm">Visualisation</a></li>
+                <li><a href="./bloom-analysis.htm">Analysis</a></li>
+                <li><a href="./bloom-posttest.htm">Posttest</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <h1>Bloom's Algorithm Visualization</h1>
+            <div id="controls">
+                <div id="sizeInputDiv">
+                    <input type="number" id="inputSize" placeholder="Enter hash table size" />
+                    <button onclick="initializeHashTable()">Set</button>
+                </div>
+                <div id="valueInputDiv" style="display: none;">
+                    <input type="number" id="inputValue" placeholder="Enter value to store/search" />
+                    <button onclick="processValue()">Insert</button>
+                    <button onclick="searchValue()">Search</button>
+                </div>
+                <button id="resetButton" style="display: none;" onclick="resetHashTable()">Reset</button>
+            </div>
+            <div id="visualization">
+                <p id="tableStatus">Please enter the size of the hash table to begin.</p>
+                <div id="hashCalculations"></div>
+                <div id="bitArray"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Learning Labs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let bitArray = [];
+        let size = 0;
+
+        function initializeHashTable() {
+            const inputSize = document.getElementById("inputSize");
+            size = parseInt(inputSize.value);
+            if (!isNaN(size) && size > 0) {
+                bitArray = new Array(size).fill(0);
+                document.getElementById("sizeInputDiv").style.display = "none"; 
+                document.getElementById("valueInputDiv").style.display = "block"; 
+                document.getElementById("resetButton").style.display = "inline"; 
+                document.getElementById("tableStatus").textContent = `Hash table initialized with size ${size}. Enter a value to insert or search.`;
+                displayBitArray();
+            }
+        }
+
+        function hash1(value) { return (value % size); }
+        function hash2(value) { return (value * 3 % size); }
+        function hash3(value) { return (value * 7 % size); }
+
+        function displayBitArray() {
+            const bitArrayDiv = document.getElementById("bitArray");
+            const bits = bitArray.map(bit => `<span style="font-size: small;">${bit}</span>`).join(", ");
+
+            const indices = Array.from({ length: size }, (_, index) => `<span style="font-size: small;">${index}</span>`).join(", ");
+            bitArrayDiv.innerHTML += "Indices: [" + indices + "]"; 
+        }
+
+        function processValue() {
+            const inputValue = parseInt(document.getElementById("inputValue").value);
+            if (!isNaN(inputValue)) {
+                insertValue(inputValue);
+                document.getElementById("inputValue").value = '';  
+            }
+        }
+
+        function insertValue(inputValue) {
+            const h1 = hash1(inputValue);
+            const h2 = hash2(inputValue);
+            const h3 = hash3(inputValue);
+
+            bitArray[h1] = 1;
+            bitArray[h2] = 1;
+            bitArray[h3] = 1;
+
+            displayBitArray();
+            document.getElementById("hashCalculations").innerHTML = `
+                <p>Inserted value <strong>${inputValue}</strong>:</p>
+                <p>Hash 1: Position ${h1}</p>
+                <p>Hash 2: Position ${h2}</p>
+                <p>Hash 3: Position ${h3}</p>
+            `;
+        }
+
+        function searchValue() {
+            const inputValue = parseInt(document.getElementById("inputValue").value);
+            if (!isNaN(inputValue)) {
+                const h1 = hash1(inputValue);
+                const h2 = hash2(inputValue);
+                const h3 = hash3(inputValue);
+
+                const searchResult = (bitArray[h1] === 1 && bitArray[h2] === 1 && bitArray[h3] === 1);
+
+                document.getElementById("hashCalculations").innerHTML = `
+                    <p>Search calculations for value <strong>${inputValue}</strong>:</p>
+                    <p>Hash 1: Position ${h1} - <strong>${bitArray[h1] === 1 ? "Match (1)" : "No Match (0)"}</strong></p>
+                    <p>Hash 2: Position ${h2} - <strong>${bitArray[h2] === 1 ? "Match (1)" : "No Match (0)"}</strong></p>
+                    <p>Hash 3: Position ${h3} - <strong>${bitArray[h3] === 1 ? "Match (1)" : "No Match (0)"}</strong></p>
+                    <p>Result: ${searchResult ? "Possibly in set" : "Definitely not in set"}</p>
+                `;
+            }
+        }
+
+        function resetHashTable() {
+            size = 0;
+            bitArray = [];
+            document.getElementById("sizeInputDiv").style.display = "block";
+            document.getElementById("valueInputDiv").style.display = "none";
+            document.getElementById("resetButton").style.display = "none"; 
+            document.getElementById("tableStatus").textContent = "Please enter the size of the hash table to begin.";
+            document.getElementById("hashCalculations").innerHTML = '';
+            document.getElementById("bitArray").innerHTML = '';
+        }
+
+        document.getElementById("inputValue").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
 
