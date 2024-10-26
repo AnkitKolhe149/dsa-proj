@@ -71,4 +71,94 @@
     prepend(value) {
       const newNode = new Node(value);
       newNode.next = this.head;
-      this.head = new
+      this.head = newNode;
+      this.render();
+    }
+
+    // Insert a node at a specific position
+    insertAtPosition(value, position) {
+      const newNode = new Node(value);
+      if (position <= 1 || !this.head) {
+        this.prepend(value);
+        return;
+      }
+      let current = this.head;
+      let count = 1;
+      while (current && count < position - 1) {
+        current = current.next;
+        count++;
+      }
+      if (current) {
+        newNode.next = current.next;
+        current.next = newNode;
+      } else {
+        alert("Position out of bounds. Adding at the end.");
+        this.append(value);
+      }
+      this.render();
+    }
+
+    // Render the linked list to HTML
+    render() {
+      const container = document.getElementById("linkedList");
+      container.innerHTML = "";
+      let current = this.head;
+      while (current) {
+        // Create node element
+        const nodeElem = document.createElement("div");
+        nodeElem.className = "node";
+        nodeElem.innerText = current.value;
+        container.appendChild(nodeElem);
+
+        // Add arrow if there's a next node
+        if (current.next) {
+          const arrowElem = document.createElement("span");
+          arrowElem.className = "arrow";
+          arrowElem.innerHTML = "&#8594;";
+          container.appendChild(arrowElem);
+        }
+
+        current = current.next;
+      }
+    }
+  }
+
+  // Initialize linked list
+  const linkedList = new LinkedList();
+
+  // Functions to add nodes at specific positions
+  function addNodeAtEnd() {
+    const value = document.getElementById("nodeValue").value;
+    if (value !== "") {
+      linkedList.append(parseInt(value));
+      document.getElementById("nodeValue").value = "";
+    } else {
+      alert("Please enter a value to add a node.");
+    }
+  }
+
+  function addNodeAtFront() {
+    const value = document.getElementById("nodeValue").value;
+    if (value !== "") {
+      linkedList.prepend(parseInt(value));
+      document.getElementById("nodeValue").value = "";
+    } else {
+      alert("Please enter a value to add a node.");
+    }
+  }
+
+  function addNodeAtPosition() {
+    const value = document.getElementById("nodeValue").value;
+    const position = document.getElementById("nodePosition").value;
+    if (value !== "" && position !== "") {
+      linkedList.insertAtPosition(parseInt(value), parseInt(position));
+      document.getElementById("nodeValue").value = "";
+      document.getElementById("nodePosition").value = "";
+    } else {
+      alert("Please enter a value and position to add a node.");
+    }
+  }
+</script>
+
+</body>
+</html>
